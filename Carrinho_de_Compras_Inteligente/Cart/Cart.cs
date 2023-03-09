@@ -88,8 +88,8 @@ namespace Carrinho_de_Compras_Inteligente.Cart
                     Console.WriteLine("== 3 - Limpar carrinho ======");
                     Console.WriteLine("== 4 - Status do carrinho ===");
                     Console.WriteLine("== 5 - Procurar item ========");
-                    Console.WriteLine("== 6 - Salvar Carrinho ======");
-                    Console.WriteLine("== 7 - Atualizar quantidade =");
+                    Console.WriteLine("== 6 - Atualizar quantidade =");
+                    Console.WriteLine("== 7 - Salvar Carrinho ======");
                     Console.WriteLine("== 8 - Finalizar ============");
                     Console.WriteLine("=============================");
 
@@ -120,10 +120,10 @@ namespace Carrinho_de_Compras_Inteligente.Cart
                             SearchCartItem();
                             break;
                         case '6':
-                            SaveCart();
+                            changeAmountOfItems();
                             break;
                         case '7':
-                            changeAmountOfItems();
+                            SaveCart();
                             break;
                         case '8':
                             EndServices();
