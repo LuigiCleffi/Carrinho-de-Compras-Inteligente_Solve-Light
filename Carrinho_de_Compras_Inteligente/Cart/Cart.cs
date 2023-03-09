@@ -89,7 +89,8 @@ namespace Carrinho_de_Compras_Inteligente.Cart
                     Console.WriteLine("== 4 - Status do carrinho ===");
                     Console.WriteLine("== 5 - Procurar item ========");
                     Console.WriteLine("== 6 - Salvar Carrinho ======");
-                    Console.WriteLine("== 7 - Finalizar ============");
+                    Console.WriteLine("== 7 - Atualizar quantidade =");
+                    Console.WriteLine("== 8 - Finalizar ============");
                     Console.WriteLine("=============================");
 
                     Console.Write("Selecione uma opção: ");
@@ -122,6 +123,9 @@ namespace Carrinho_de_Compras_Inteligente.Cart
                             SaveCart();
                             break;
                         case '7':
+                            changeAmountOfItems();
+                            break;
+                        case '8':
                             EndServices();
                             finalizarCompra = true;
                             break;
@@ -154,6 +158,34 @@ namespace Carrinho_de_Compras_Inteligente.Cart
             catch (Exception ex)
             {
                 Console.WriteLine($"Erro ao salvar o arquivo: {ex.Message}");
+            }
+        }
+
+        private void changeAmountOfItems()
+        {
+            Console.Write("Nome do produto: ");
+            string itemName = Console.ReadLine();
+
+            if (cartItems.ContainsKey(itemName))
+            {
+                Console.WriteLine("Produto encontrado\n");
+                Console.WriteLine("Quantos itens você deseja adicinar ? \n");
+                int itemAmount= int.Parse(Console.ReadLine());
+
+                cartItems[itemName] *=  itemAmount;
+                Console.WriteLine("Quantidade de itens atualizada com sucesso! \n");
+                Console.WriteLine("... Voltando ao menu ...\n\n");
+                Console.WriteLine("Pressione qualquer tecla para continuar.");
+
+                Console.ReadKey();
+
+            }
+            else
+            {
+                Console.WriteLine("Ops infelizmente produto não encontrado !");
+                Console.WriteLine("... Voltando ao menu ...\n\n");
+                Console.WriteLine("Pressione qualquer tecla para continuar.");
+                Console.ReadKey();
             }
         }
 
